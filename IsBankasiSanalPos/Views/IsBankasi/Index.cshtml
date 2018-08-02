@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+@model IsBankasiSanalPos.Models.IsBankasi.IsBankasiVm
+<form method="post" action="https://<IsbankasiApiAdresi>/fim/est3Dgate">
+    <table>
+        <tr>
+            <td>Credit Card Number</td>
+            <td>
+                <input type="text" name="pan"
+                       size="20" />
+        </tr>
+        <tr>
+            <td>CVV</td>
+            <td><input type="text" name="cv2" size="4" value="" /></td>
+           3D Ödeme
+        </tr>
+        <tr>
+            <td>Expiration Date Year</td>
+            <td>
+                <input type="text"
+                       name="Ecom_Payment_Card_ExpDate_Year" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>Expiration Date Month</td>
+            <td>
+                <input type="text" name="Ecom_Payment_Card_ExpDate_Month" value="" />
+            </td>
+        </tr>
+        <tr>
+            <td>Choosing Visa Master Card</td>
+            <td>
+                <select name="cardType">
+                    <option value="1">Visa</option>
+                    <option value="2">MasterCard</option>
+                </select>
+        </tr>
+        <tr>
+            <td align="center" colspan="2">
+                <input type="submit" value="CompletePayment" />
+            </td>
+        </tr>
+    </table>
+
+    @*Gizli Olarak Göndermiş oldugumuz Paremetler*@
+    <input type="hidden" name="clientid" value="@Model.clientId">
+    <input type="hidden" name="amount" value="@Model.amount">
+    <input type="hidden" name="oid" value="@Model.oid">
+    <input type="hidden" name="okUrl" value="@Model.okUrl">
+    <input type="hidden" name="failUrl" value="@Model.failUrl">
+    <input type="hidden" name="rnd" value="@Model.rnd">
+    <input type="hidden" name="hash" value="@Model.hash">
+    <input type="hidden" name="storetype" value="3d">
+    <input type="hidden" name="lang" value="tr">
+    <input type="hidden" name="currency" value="949">
+
+</form>
